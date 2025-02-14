@@ -17,9 +17,7 @@ export const useFruitStore = defineStore("fruit", {
   actions: {
     async getAllFruits() {
       try {
-        const response = await fetch(
-          "https://cors-anywhere.herokuapp.com/https://fruityvice.com/api/fruit/all",
-        );
+        const response = await fetch("https://fruityvice.com/api/fruit/all");
         if (!response.ok) {
           throw new Error("Failed to fetch fruits");
         }
@@ -32,7 +30,7 @@ export const useFruitStore = defineStore("fruit", {
     async getFamilyFruits(family: string) {
       try {
         const response = await fetch(
-          `https://cors-anywhere.herokuapp.com/https://fruityvice.com/api/fruit/family/${family}`,
+          `https://fruityvice.com/api/fruit/family/${family}`,
         );
         if (!response.ok) {
           throw new Error("Failed to fetch fruits family");
