@@ -21,7 +21,6 @@ const label = (str: string) => str.charAt(0).toUpperCase() + str.slice(1);
 const clearFilters = () => {
   Object.keys(localFilters.value).forEach((key) => {
     localFilters.value[key].min = 0;
-    localFilters.value[key].max = 1000;
   });
 };
 </script>

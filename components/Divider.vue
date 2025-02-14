@@ -44,6 +44,7 @@ const close = () => {
   border: none;
   background: transparent;
   font-size: var(--text-lg);
+  color: var(--color-black);
 
   cursor: pointer;
 }

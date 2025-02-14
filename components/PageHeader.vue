@@ -33,6 +33,7 @@ const showFilter = () => {
   background: transparent;
   border: none;
   font-size: var(--text-2xl);
+  color: var(--color-black);
   cursor: pointer;
   display: none;
 }
