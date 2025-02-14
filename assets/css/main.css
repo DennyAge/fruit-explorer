@@ -1,0 +1,27 @@
+@import './fonts.css';
+
+:root {
+    --color-black: #2b2b2b;
+    --color-white: #e0e0e0;
+    --color-grey: #e4e4e4;
+    --color-light-grey: #e4e4e4;
+    --color-primary-100: #6979f8;
+    --color-primary-75: #a5affb;
+    --color-primary-25: #e5e7fa;
+
+    --text-2xl: 1.5rem;
+    --text-xl: 1.25rem;
+    --text-lg: 1.125rem;
+    --text-md: 1rem;
+    --text-sm: 0.875rem;
+    --text-xs: 0.75rem;
+
+    --shadow-sm:  0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    --shadow-md:  0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+}
