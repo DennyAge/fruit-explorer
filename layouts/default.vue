@@ -1,13 +1,3 @@
-<template>
-  <main>
-    <Loader v-if="isLoading" />
-    <Header />
-    <div class="page-content">
-      <slot />
-    </div>
-  </main>
-</template>
-
 <script setup lang="ts">
 import { useFruitStore } from "~/stores/fruit.store";
 import { useLoadingStore } from "~/stores/loading.store";
@@ -26,7 +16,7 @@ const getData = async () => {
     }
     fruitsStore.loadFavoritesFromLocalStorage();
   } catch (error) {
-    console.error("Failed get user:", error);
+    console.error("Failed get fruits:", error);
   } finally {
     loadingStore.setLoading(false);
   }
@@ -34,6 +24,17 @@ const getData = async () => {
 
 onMounted(getData);
 </script>
+
+<template>
+  <main>
+    <Loader v-if="isLoading" />
+    <Header />
+    <div class="page-content">
+      <slot />
+    </div>
+  </main>
+</template>
+
 <style scoped>
 .page-content {
   padding: 0 2rem;

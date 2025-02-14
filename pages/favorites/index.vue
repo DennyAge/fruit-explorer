@@ -1,29 +1,16 @@
-<template>
-  <div>
-    <h2 class="page-title">Favorite Fruits:</h2>
-    <div class="fruit-grid">
-      <FruitCard
-        v-for="fruit in favoriteFruits"
-        :key="fruit.id"
-        :fruit="fruit"
-      />
-    </div>
-  </div>
-</template>
-
 <script setup lang="ts">
-import { useFruitStore } from "~/stores/fruit.store";
-
 useHead({
   title: "Favorite List",
   link: [
     {
       rel: "icon",
       type: "image/x-icon",
-      href: "/logo.png",
+      href: "/logo.svg",
     },
   ],
 });
+
+import { useFruitStore } from "~/stores/fruit.store";
 
 const fruitsStore = useFruitStore();
 const fruits = computed(() => fruitsStore.fruits);
@@ -35,18 +22,26 @@ const favoriteFruits = computed(() => {
 });
 </script>
 
+<template>
+  <section>
+    <PageHeader title="Favorite Fruits:" />
+    <div class="fruit-grid">
+      <FruitCard
+        v-for="fruit in favoriteFruits"
+        :key="fruit.id"
+        :fruit="fruit"
+      />
+    </div>
+  </section>
+</template>
+
 <style scoped>
 .fruit-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 16px;
-}
-.page-title {
-  font-size: 2rem;
-}
-@media screen and (max-width: 500px) {
-  .page-title {
-    font-size: var(--text-xl);
-  }
+  height: calc(100dvh - 12rem);
+  overflow-y: scroll;
+  padding-bottom: 2rem;
 }
 </style>

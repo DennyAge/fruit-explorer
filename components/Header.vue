@@ -1,6 +1,16 @@
+<script setup lang="ts">
+const navLinks = [
+  { label: "Home", to: "/" },
+  { label: "Favorites", to: "/favorites" },
+];
+</script>
+
 <template>
   <div class="header">
-    <div class="header__logo">🍋‍🟩 Fruit Explorer</div>
+    <div class="header__logo">
+      <nuxt-img src="/logo.svg" alt="logo" />
+      Fruit Explorer
+    </div>
     <nav class="header__nav">
       <NuxtLink
         v-for="link in navLinks"
@@ -15,25 +25,22 @@
   </div>
 </template>
 
-<script setup lang="ts">
-const navLinks = [
-  { label: "Home", to: "/" },
-  { label: "Favorites", to: "/favorites" },
-];
-</script>
-
 <style scoped>
 .header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 1rem 2rem;
+  height: 2rem;
 
-  border-bottom: 1px solid var(--color-light-grey);
+  border-bottom: 0.063rem solid var(--color-light-grey);
 }
 .header__logo {
   font-size: 2rem;
   font-weight: 700;
+}
+.header__logo img {
+  width: 2rem;
 }
 .header__nav {
   display: flex;
@@ -63,6 +70,9 @@ const navLinks = [
   }
   .header__logo {
     font-size: var(--text-lg);
+  }
+  .header__logo img {
+    width: 1rem;
   }
   .header__nav__link {
     font-size: var(--text-sm);
