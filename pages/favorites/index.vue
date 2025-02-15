@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import EmptyContent from "~/components/EmptyContent.vue";
+
 useHead({
   title: "Favorite List",
   link: [
@@ -23,7 +25,8 @@ const favoriteFruits = computed(() => {
 </script>
 
 <template>
-  <section>
+  <EmptyContent v-if="favoriteFruits.length <= 0" />
+  <section v-else>
     <PageHeader title="Favorite Fruits:" />
     <div class="fruit-grid">
       <FruitCard
