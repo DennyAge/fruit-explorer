@@ -49,11 +49,13 @@ onMounted(async () => {
         @open-divider="openDivider"
       />
       <div class="fruit-list">
-        <FruitCard
-          v-for="fruit in filteredFruits"
-          :key="fruit.id"
-          :fruit="fruit"
-        />
+        <div class="fruit-grid">
+          <FruitCard
+            v-for="fruit in filteredFruits"
+            :key="fruit.id"
+            :fruit="fruit"
+          />
+        </div>
       </div>
     </div>
   </section>
@@ -75,12 +77,14 @@ onMounted(async () => {
   width: 100%;
 }
 .fruit-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 1rem;
   height: calc(100dvh - 12rem);
   overflow-y: scroll;
   padding-bottom: 2rem;
+}
+.fruit-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
 }
 @media screen and (max-width: 1200px) {
   .filter-content {

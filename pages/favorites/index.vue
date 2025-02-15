@@ -28,24 +28,28 @@ const favoriteFruits = computed(() => {
   <EmptyContent v-if="favoriteFruits.length <= 0" />
   <section v-else>
     <PageHeader title="Favorite Fruits:" />
-    <div class="fruit-grid">
-      <FruitCard
-        v-for="fruit in favoriteFruits"
-        :key="fruit.id"
-        :fruit="fruit"
-        show-link
-      />
+    <div class="fruit-list">
+      <div class="fruit-grid">
+        <FruitCard
+          v-for="fruit in favoriteFruits"
+          :key="fruit.id"
+          :fruit="fruit"
+          show-link
+        />
+      </div>
     </div>
   </section>
 </template>
 
 <style scoped>
-.fruit-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 16px;
+.fruit-list {
   height: calc(100dvh - 12rem);
   overflow-y: scroll;
   padding-bottom: 2rem;
+}
+.fruit-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1rem;
 }
 </style>

@@ -31,7 +31,7 @@ const close = () => {
 
   background: var(--color-primary-25);
   box-shadow: var(--shadow-md);
-  animation: slide-left ease 1s;
+  animation: slide-left ease 0.5s;
 }
 .divider__header {
   display: flex;
