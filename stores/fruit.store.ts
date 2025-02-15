@@ -17,11 +17,8 @@ export const useFruitStore = defineStore("fruit", {
   actions: {
     async getAllFruits() {
       try {
-        const response = await fetch("https://fruityvice.com/api/fruit/all");
-        if (!response.ok) {
-          throw new Error("Failed to fetch fruits");
-        }
-        this.$patch({ fruits: (await response.json()) || [] });
+        const data = await $fetch("/api/fruits");
+        this.$patch({ fruits: data || [] });
       } catch (error) {
         console.error("Get fruits failed:", error);
         this.$patch({ fruits: [] });
@@ -29,13 +26,8 @@ export const useFruitStore = defineStore("fruit", {
     },
     async getFamilyFruits(family: string) {
       try {
-        const response = await fetch(
-          `https://fruityvice.com/api/fruit/family/${family}`,
-        );
-        if (!response.ok) {
-          throw new Error("Failed to fetch fruits family");
-        }
-        this.$patch({ fruitsFamily: (await response.json()) || [] });
+        const data = await $fetch(`/api/fruits-family/${family}`);
+        this.$patch({ fruitsFamily: data || [] });
       } catch (error) {
         console.error("Get fruits family failed:", error);
         this.$patch({ fruitsFamily: [] });
