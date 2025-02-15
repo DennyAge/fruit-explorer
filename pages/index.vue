@@ -37,6 +37,7 @@ const openDivider = () => {
           v-for="fruit in filteredFruits"
           :key="fruit.id"
           :fruit="fruit"
+          show-link
         />
       </div>
     </div>

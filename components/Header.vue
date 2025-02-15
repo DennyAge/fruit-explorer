@@ -33,7 +33,7 @@ const navLinks = [
   padding: 1rem 2rem;
   height: 2rem;
 
-  border-bottom: 0.063rem solid var(--color-light-grey);
+  box-shadow: var(--shadow-md);
 }
 .header__logo {
   font-size: 2rem;

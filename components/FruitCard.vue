@@ -4,6 +4,7 @@ import { useFruitStore } from "~/stores/fruit.store";
 
 const props = defineProps<{
   fruit: Fruit;
+  showLink?: boolean;
 }>();
 
 const fruitStore = useFruitStore();
@@ -41,7 +42,13 @@ function toggleFavorite() {
     </div>
     <p>
       <b>Family: </b>
-      <NuxtLink :to="`/family/${fruit.family}`">{{ fruit.family }}</NuxtLink>
+      <NuxtLink
+        v-if="showLink"
+        class="family-link"
+        :to="`/family/${fruit.family}`"
+        >{{ fruit.family }}</NuxtLink
+      >
+      <span v-else>{{ fruit.family }}</span>
     </p>
     <p><b>Calories:</b> {{ fruit.nutritions?.calories ?? "-" }}</p>
     <p><b>Carbohydrates:</b> {{ fruit.nutritions?.carbohydrates ?? "-" }}g</p>
@@ -77,6 +84,13 @@ function toggleFavorite() {
 }
 .active {
   color: var(--color-primary-100);
+}
+.family-link {
+  text-decoration: none;
+  color: var(--color-primary-100);
+}
+.family-link:hover {
+  text-decoration: underline;
 }
 @media screen and (max-width: 500px) {
   .fruit-card {

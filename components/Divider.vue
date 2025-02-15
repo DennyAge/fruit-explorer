@@ -21,15 +21,16 @@ const close = () => {
 <style scoped>
 .divider {
   position: fixed;
-  top: 4rem;
+  top: 4.2rem;
   left: 0;
+  z-index: 10;
 
   width: max-content;
   height: 100dvh;
   overflow: scroll;
 
   background: var(--color-primary-25);
-  z-index: 10;
+  box-shadow: var(--shadow-md);
   animation: slide-left ease 1s;
 }
 .divider__header {

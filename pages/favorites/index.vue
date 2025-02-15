@@ -30,6 +30,7 @@ const favoriteFruits = computed(() => {
         v-for="fruit in favoriteFruits"
         :key="fruit.id"
         :fruit="fruit"
+        show-link
       />
     </div>
   </section>
